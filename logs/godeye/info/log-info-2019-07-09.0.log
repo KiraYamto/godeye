@@ -1,0 +1,456 @@
+===2019-07-09 15:15:30.212 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 1284 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:15:30.224 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:15:30.335 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:15:30 CST 2019]; root of context hierarchy
+===2019-07-09 15:15:32.047 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:15:32.070 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:15:32.090 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:15:32.091 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:15:32.099 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:15:32.099 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:15:32.100 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:15:33.217 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:15:33.366 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:15:33.367 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 3031 ms
+===2019-07-09 15:15:33.557 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:15:33.563 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:15:33.564 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:15:33.565 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:15:33.565 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:15:34.082 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:15:30 CST 2019]; root of context hierarchy
+===2019-07-09 15:15:34.175 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:15:34.178 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:15:34.178 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{finishMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:15:34.179 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:15:34.180 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:15:34.187 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:15:34.188 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:15:34.189 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:15:34.189 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:15:34.190 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:15:34.191 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:15:34.192 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:15:34.198 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:15:34.200 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:15:34.200 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:15:34.201 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:15:34.202 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:15:34.202 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:15:34.203 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:15:34.203 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:15:34.204 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:15:34.204 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:15:34.205 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:15:34.205 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:15:34.206 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:15:34.210 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:15:34.211 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:15:34.264 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:15:34.264 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:15:34.337 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:15:34.725 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:15:34.747 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:15:34.766 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:15:34.794 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:15:34.799 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 5.331 seconds (JVM running for 11.411)
+===2019-07-09 15:16:31.194 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:16:31.195 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:16:31.231 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+===2019-07-09 15:16:35.116 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"recordType": 1,
+	"startMoment": "2019-07-09 15:20:00",
+	"finishMoment:": "2019-07-09 15:21:00"
+} ===== 
+===2019-07-09 15:16:47.510 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:989 - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:15:30 CST 2019]; root of context hierarchy
+===2019-07-09 15:16:47.521 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:452 - Unregistering JMX-exposed beans on shutdown
+===2019-07-09 15:17:32.476 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 12408 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:17:32.485 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:17:32.575 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@327514f: startup date [Tue Jul 09 15:17:32 CST 2019]; root of context hierarchy
+===2019-07-09 15:17:34.026 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:17:34.042 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:17:34.051 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:17:34.051 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:17:34.058 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:17:34.059 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:17:34.059 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:17:35.175 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:17:35.286 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:17:35.287 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 2711 ms
+===2019-07-09 15:17:35.458 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:17:35.463 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:17:35.464 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:17:35.465 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:17:35.465 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:17:35.838 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@327514f: startup date [Tue Jul 09 15:17:32 CST 2019]; root of context hierarchy
+===2019-07-09 15:17:35.900 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:17:35.902 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:17:35.903 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{finishMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:17:35.904 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:17:35.904 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:17:35.909 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:17:35.910 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:17:35.910 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:17:35.911 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:17:35.911 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:17:35.912 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:17:35.912 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:17:35.917 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:17:35.918 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:17:35.918 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:17:35.919 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:17:35.919 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:17:35.920 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:17:35.920 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:17:35.921 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:17:35.921 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:17:35.922 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:17:35.922 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:17:35.922 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:17:35.923 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:17:35.926 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:17:35.927 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:17:35.969 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:17:35.969 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:17:36.014 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:17:36.221 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:17:36.237 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:17:36.254 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:17:36.274 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:17:36.279 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 4.534 seconds (JVM running for 8.587)
+===2019-07-09 15:17:56.851 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:17:56.852 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:17:56.883 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+===2019-07-09 15:17:56.949 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"recordType": 1,
+	"startMoment": "2019-07-09 15:20:00",
+	"finishMoment:": "2019-07-09 15:21:00"
+} ===== 
+===2019-07-09 15:18:11.579 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 16004 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:18:11.591 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:18:11.679 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:18:11 CST 2019]; root of context hierarchy
+===2019-07-09 15:18:13.229 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:18:13.246 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:18:13.258 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:18:13.259 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:18:13.268 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:18:13.269 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:18:13.269 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:18:14.399 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:18:14.540 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:18:14.541 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 2862 ms
+===2019-07-09 15:18:14.735 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:18:14.741 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:18:14.742 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:18:14.743 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:18:14.743 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:18:15.265 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:18:11 CST 2019]; root of context hierarchy
+===2019-07-09 15:18:15.349 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:18:15.352 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:18:15.354 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{finishMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:18:15.354 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:18:15.355 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:18:15.360 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:18:15.361 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:18:15.361 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:18:15.362 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:18:15.362 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:18:15.363 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:18:15.363 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:18:15.369 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:18:15.370 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:18:15.371 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:18:15.371 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:18:15.372 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:18:15.372 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:18:15.373 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:18:15.373 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:18:15.373 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:18:15.374 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:18:15.374 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:18:15.375 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:18:15.376 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:18:15.379 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:18:15.380 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:18:15.435 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:18:15.436 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:18:15.500 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:18:15.904 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:18:15.924 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:18:15.945 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:18:15.972 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:18:15.978 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 5.244 seconds (JVM running for 9.635)
+===2019-07-09 15:18:17.239 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:18:17.239 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:18:17.285 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 45 ms
+===2019-07-09 15:18:19.448 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"recordType": 1,
+	"startMoment": "2019-07-09 15:20:00",
+	"finishMoment:": "2019-07-09 15:21:00"
+} ===== 
+===2019-07-09 15:20:58.386 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"recordType": 1,
+	"startMoment": "2019-07-09 15:20:00",
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:21:52.228 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"finishMoment:": "2019-07-09 15:21:00",
+	"recordType": 1
+} ===== 
+===2019-07-09 15:23:16.470 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"recordType": 1,
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:23:42.409 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:989 - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:18:11 CST 2019]; root of context hierarchy
+===2019-07-09 15:23:42.414 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:452 - Unregistering JMX-exposed beans on shutdown
+===2019-07-09 15:24:28.361 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 4200 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:24:28.373 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:24:28.496 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:24:28 CST 2019]; root of context hierarchy
+===2019-07-09 15:24:30.332 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:24:30.350 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:24:30.363 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:24:30.363 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:24:30.370 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:24:30.371 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:24:30.371 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:24:31.482 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:24:31.623 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:24:31.624 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 3128 ms
+===2019-07-09 15:24:31.826 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:24:31.836 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:24:31.837 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:24:31.837 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:24:31.837 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:24:32.349 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:24:28 CST 2019]; root of context hierarchy
+===2019-07-09 15:24:32.439 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:24:32.442 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:24:32.443 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:24:32.443 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{endMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:24:32.444 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:24:32.449 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:24:32.450 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:24:32.450 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:24:32.451 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:24:32.451 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:24:32.452 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:24:32.452 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:24:32.457 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:24:32.458 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:24:32.459 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:24:32.459 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:24:32.460 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:24:32.460 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:24:32.461 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:24:32.461 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:24:32.462 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:24:32.463 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:24:32.463 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:24:32.464 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:24:32.465 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:24:32.469 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:24:32.471 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:24:32.525 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:24:32.525 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:24:32.583 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:24:32.972 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:24:32.991 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:24:33.011 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:24:33.035 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:24:33.040 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 5.439 seconds (JVM running for 9.912)
+===2019-07-09 15:24:36.365 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:24:36.366 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:24:36.420 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 53 ms
+===2019-07-09 15:24:38.539 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"recordType": 1,
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:24:54.101 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:989 - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:24:28 CST 2019]; root of context hierarchy
+===2019-07-09 15:24:54.109 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:452 - Unregistering JMX-exposed beans on shutdown
+===2019-07-09 15:27:01.952 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 14164 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:27:01.961 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:27:02.056 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:27:02 CST 2019]; root of context hierarchy
+===2019-07-09 15:27:03.631 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:27:03.647 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:27:03.660 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:27:03.661 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:27:03.669 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:27:03.669 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:27:03.670 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:27:04.773 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:27:04.904 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:27:04.905 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 2849 ms
+===2019-07-09 15:27:05.100 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:27:05.108 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:27:05.109 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:27:05.109 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:27:05.109 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:27:05.600 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:27:02 CST 2019]; root of context hierarchy
+===2019-07-09 15:27:05.683 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:27:05.685 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:27:05.686 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:27:05.686 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:27:05.687 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{endMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:27:05.692 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:27:05.693 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:27:05.693 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:27:05.694 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:27:05.694 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:27:05.695 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:27:05.695 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:27:05.701 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:27:05.702 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:27:05.703 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:27:05.703 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:27:05.704 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:27:05.705 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:27:05.705 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:27:05.706 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:27:05.706 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:27:05.707 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:27:05.707 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:27:05.708 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:27:05.708 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:27:05.712 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:27:05.713 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:27:05.767 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:27:05.767 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:27:05.827 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:27:06.207 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:27:06.226 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:27:06.246 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:27:06.269 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:27:06.274 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 5.061 seconds (JVM running for 9.669)
+===2019-07-09 15:27:10.318 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:27:10.318 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:27:10.354 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms
+===2019-07-09 15:27:12.707 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"recordType": 1,
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:27:22.879 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:989 - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@57ea113a: startup date [Tue Jul 09 15:27:02 CST 2019]; root of context hierarchy
+===2019-07-09 15:27:22.891 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:452 - Unregistering JMX-exposed beans on shutdown
+===2019-07-09 15:28:09.640 INFO  com.xsmart.camera.GodeyeStart Line:50  - Starting GodeyeStart on DESKTOP-MB4R5RL with PID 18480 (D:\IDEAWorkSpace\other\godeye\target\classes started by Think in D:\IDEAWorkSpace\other\godeye)
+===2019-07-09 15:28:09.648 INFO  com.xsmart.camera.GodeyeStart Line:652 - No active profile set, falling back to default profiles: default
+===2019-07-09 15:28:09.752 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:589 - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@674bd420: startup date [Tue Jul 09 15:28:09 CST 2019]; root of context hierarchy
+===2019-07-09 15:28:11.395 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:91  - Tomcat initialized with port(s): 8001 (http)
+===2019-07-09 15:28:11.412 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Initializing ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:28:11.427 INFO  org.apache.catalina.core.StandardService Line:180 - Starting service [Tomcat]
+===2019-07-09 15:28:11.427 INFO  org.apache.catalina.core.StandardEngine Line:180 - Starting Servlet Engine: Apache Tomcat/8.5.28
+===2019-07-09 15:28:11.436 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - Loaded APR based Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+===2019-07-09 15:28:11.436 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+===2019-07-09 15:28:11.437 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+===2019-07-09 15:28:12.549 INFO  org.apache.catalina.core.AprLifecycleListener Line:180 - OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+===2019-07-09 15:28:12.691 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring embedded WebApplicationContext
+===2019-07-09 15:28:12.692 INFO  org.springframework.web.context.ContextLoader Line:285 - Root WebApplicationContext: initialization completed in 2940 ms
+===2019-07-09 15:28:12.889 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:185 - Servlet dispatcherServlet mapped to [/]
+===2019-07-09 15:28:12.896 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2019-07-09 15:28:12.897 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2019-07-09 15:28:12.897 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2019-07-09 15:28:12.898 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:243 - Mapping filter: 'requestContextFilter' to: [/*]
+===2019-07-09 15:28:13.458 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:567 - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@674bd420: startup date [Tue Jul 09 15:28:09 CST 2019]; root of context hierarchy
+===2019-07-09 15:28:13.541 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/index/{streamId} || /INDEX/{streamId}],methods=[GET]}" onto public void com.xsmart.camera.controller.CameraController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+===2019-07-09 15:28:13.543 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startPushStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public void com.xsmart.camera.controller.FfmpegController.startPushStream(java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:28:13.544 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/playStream/{streamPath}/{provider}/{deviceId}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.playStream(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String)
+===2019-07-09 15:28:13.545 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecord],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecord(java.lang.String)
+===2019-07-09 15:28:13.545 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/startRecordPlan/{streamPath}/{provider}/{deviceId}/{startMoment}/{endMoment}],methods=[POST]}" onto public com.xsmart.camera.http.CameraResponse com.xsmart.camera.controller.FfmpegController.startRecordPlan(java.lang.String)
+===2019-07-09 15:28:13.550 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onclose],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onclose(java.lang.String)
+===2019-07-09 15:28:13.551 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onplay],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onplay(java.lang.String)
+===2019-07-09 15:28:13.551 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onunpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onunpublish(java.lang.String)
+===2019-07-09 15:28:13.552 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onstop],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onstop(java.lang.String)
+===2019-07-09 15:28:13.552 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onpublish],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onpublish(java.lang.String)
+===2019-07-09 15:28:13.553 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/ondvr],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.ondvr(java.lang.String)
+===2019-07-09 15:28:13.554 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/callback/onconnect],methods=[POST]}" onto public int com.xsmart.camera.controller.SrsCallbackController.onconnect(java.lang.String)
+===2019-07-09 15:28:13.559 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/versions],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getVersions()
+===2019-07-09 15:28:13.560 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/clients],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getClients()
+===2019-07-09 15:28:13.561 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/rusages],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRusages()
+===2019-07-09 15:28:13.561 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/self_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getselfProcStats()
+===2019-07-09 15:28:13.561 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/requests],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getRequests()
+===2019-07-09 15:28:13.562 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/streams],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getStreams()
+===2019-07-09 15:28:13.563 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/meminfos],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getMeminfos()
+===2019-07-09 15:28:13.563 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/configs],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getConfigs()
+===2019-07-09 15:28:13.564 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/authors],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getAuthors()
+===2019-07-09 15:28:13.564 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/summaries],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSummaries()
+===2019-07-09 15:28:13.565 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/features],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getFeatures()
+===2019-07-09 15:28:13.565 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/srs/system_proc_stats],methods=[GET]}" onto public java.lang.String com.xsmart.camera.controller.SrsController.getSystemProcStats()
+===2019-07-09 15:28:13.566 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/linux/commandcall/{command}],methods=[GET]}" onto public void com.xsmart.camera.controller.SystemCommandController.commandcall(java.lang.String)
+===2019-07-09 15:28:13.570 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2019-07-09 15:28:13.571 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:548 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2019-07-09 15:28:13.627 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:28:13.627 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:28:13.685 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:373 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2019-07-09 15:28:14.087 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:434 - Registering beans for JMX exposure on startup
+===2019-07-09 15:28:14.107 INFO  org.apache.coyote.http11.Http11NioProtocol Line:180 - Starting ProtocolHandler ["http-nio-8001"]
+===2019-07-09 15:28:14.125 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:180 - Using a shared selector for servlet write/read
+===2019-07-09 15:28:14.150 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer Line:205 - Tomcat started on port(s): 8001 (http) with context path '/godeye'
+===2019-07-09 15:28:14.155 INFO  com.xsmart.camera.GodeyeStart Line:59  - Started GodeyeStart in 5.349 seconds (JVM running for 9.724)
+===2019-07-09 15:28:21.268 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/godeye] Line:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+===2019-07-09 15:28:21.269 INFO  org.springframework.web.servlet.DispatcherServlet Line:494 - FrameworkServlet 'dispatcherServlet': initialization started
+===2019-07-09 15:28:21.302 INFO  org.springframework.web.servlet.DispatcherServlet Line:513 - FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+===2019-07-09 15:28:23.733 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"recordType": 1,
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:29:34.540 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"recordType": 1,
+	"finishMoment:": "2019-07-09 15:21:00",
+} ===== 
+===2019-07-09 15:34:51.804 INFO  com.xsmart.camera.controller.FfmpegController Line:115 - =======http request startRecord begin request is {
+	"streamPath": "testone",
+	"provider": "live",
+	"deviceId": "onepiece",
+	"userId": "23679",
+	"startMoment": "2019-07-09 15:20:00",
+	"recordType": 1,
+	"finishMoment": "2019-07-09 15:20:00",
+} ===== 
+===2019-07-09 15:37:46.430 INFO  com.xsmart.camera.controller.FfmpegController Line:124 - duration 2019-07-09 15:20:00 to 2019-07-09 15:20:00 record a video,and remain -1059259 ms begin and -1062466 ms end !
+===2019-07-09 15:37:46.433 INFO  com.xsmart.camera.service.SrsServiceImpl Line:46  - =======SrsServiceImpl getClients begin ===== 
+===2019-07-09 15:37:46.435 INFO  com.xsmart.camera.thread.RecordTask Line:55  - record task execute startFile command
+===2019-07-09 15:37:46.444 INFO  com.xsmart.camera.thread.RecordTask Line:50  - record task execute stop command and kill process null
+===2019-07-09 15:37:46.552 INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:989 - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@674bd420: startup date [Tue Jul 09 15:28:09 CST 2019]; root of context hierarchy
+===2019-07-09 15:37:46.560 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:452 - Unregistering JMX-exposed beans on shutdown
+===2019-07-09 15:37:46.644 INFO  com.xsmart.camera.service.SrsServiceImpl Line:51  - =======SrsServiceImpl getClients end and response is 
+ {"clients":[],"code":"0","server":"106464"}===== 

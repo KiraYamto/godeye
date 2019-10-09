@@ -1,0 +1,30 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /godeye
+logging:
+  config: classpath:logback.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://gstvip:3306/gstdb?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: gstadmin
+    password: gstadmin
+#    url: jdbc:mysql://119.23.128.223:3306/iotdb?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+#    username: iotadmin
+#    password: iotadmin
+    initialSize: 5
+    maxActive: 50
+    minIdle: 5
+    maxIdle: 50
+    maxWait: 10000
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    validationQuery: select 1 from dual
+    timeBetweenEvictionRunsMillis: 30000
+    numTestsPerEvictionRun: 32
+    minEvictableIdleTimeMillis: 1800000
+    removeAbandoned: true
+    removeAbandonedTimeout: 180
+

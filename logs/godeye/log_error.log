@@ -1,0 +1,7 @@
+===2019-07-24 16:19:46.523 ERROR com.xsmart.camera.service.CameraServiceImpl Line:78  - queryReplayConfigList occur an error!
+java.lang.NullPointerException: null
+	at com.xsmart.camera.util.FfmpegUtil.buildPushStreamCommand(FfmpegUtil.java:41) ~[classes/:na]
+	at com.xsmart.camera.service.CameraServiceImpl.initAllCamera(CameraServiceImpl.java:55) ~[classes/:na]
+	at com.xsmart.camera.GodeyeStart.main(GodeyeStart.java:25) [classes/:na]
+===2019-07-24 16:50:02.201 ERROR com.xsmart.camera.controller.CameraController Line:67  - queryReplayConfigList execute commands occur an error { } command isjava.lang.NullPointerException!
+===2019-07-24 17:03:02.464 ERROR com.xsmart.camera.controller.CameraController Line:67  - queryReplayConfigList execute commands occur an error { } command isjava.lang.NullPointerException!

@@ -1,0 +1,135 @@
+===2019-07-16 09:57:43.951 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTM3U
+===2019-07-16 09:57:43.965 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXT-X-VERSION:3
+===2019-07-16 09:57:43.966 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 09:57:43.967 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 09:57:43.967 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 09:57:43.968 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 09:57:43.969 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTINF:11.558, no desc
+===2019-07-16 09:57:43.970 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is onepiece-0.ts
+===2019-07-16 09:57:43.971 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTINF:11.147, no desc
+===2019-07-16 09:57:43.971 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is onepiece-1.ts
+===2019-07-16 09:57:43.971 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTINF:10.894, no desc
+===2019-07-16 09:57:43.972 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is onepiece-2.ts
+===2019-07-16 09:57:43.972 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTINF:11.317, no desc
+===2019-07-16 09:57:43.973 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is onepiece-3.ts
+===2019-07-16 09:57:43.973 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is #EXTINF:6.539, no desc
+===2019-07-16 09:57:43.974 INFO  com.xsmart.camera.util.M3U8Util Line:25  - this line is onepiece-4.ts
+===2019-07-16 10:36:14.840 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:36:14.850 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:36:14.853 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:36:14.853 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:36:14.853 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:36:14.853 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:36:14.854 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:36:14.854 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:36:14.854 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:36:14.854 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:36:14.855 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:36:14.855 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:36:14.855 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:36:14.855 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:36:14.856 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:36:14.856 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:36:14.856 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 10:36:57.087 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:36:57.096 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:36:57.100 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:36:57.100 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:36:57.101 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:36:57.101 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:36:57.102 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:36:57.102 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:36:57.102 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:36:57.102 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:36:57.103 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:36:57.103 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:36:57.103 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:36:57.104 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:36:57.104 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:36:57.104 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:36:57.104 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 10:37:38.223 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:37:38.232 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:37:38.234 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:37:38.235 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:37:38.235 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:37:38.235 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:37:38.236 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:37:38.236 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:37:38.236 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:37:38.237 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:37:38.238 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:37:38.238 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:37:38.238 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:37:38.239 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:37:38.239 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:37:38.239 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:37:38.240 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 10:38:38.850 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:38:38.859 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:38:38.861 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:38:38.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:38:38.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:38:38.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:38:38.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:38:38.863 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:38:38.863 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:38:38.863 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:38:38.864 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:38:38.864 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:38:38.864 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:38:38.864 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:38:38.865 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:38:38.865 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:38:38.865 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 10:40:10.843 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:40:10.852 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:40:10.855 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:40:10.856 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:40:10.857 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:40:10.857 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:40:10.858 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:40:10.859 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:40:10.859 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:40:10.860 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:40:10.860 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:40:10.861 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:40:10.861 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:40:10.861 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:40:10.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:40:10.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:40:10.862 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 10:40:39.071 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 10:40:39.081 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 10:40:39.084 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 10:40:39.085 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 10:40:39.085 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 10:40:39.086 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 10:40:39.086 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 10:40:39.087 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 10:40:39.087 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 10:40:39.088 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 10:40:39.088 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 10:40:39.088 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 10:40:39.089 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 10:40:39.089 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 10:40:39.090 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 10:40:39.090 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 10:40:39.091 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts
+===2019-07-16 14:19:05.367 INFO  com.xsmart.camera.util.M3U8Util Line:53  - startFile is {}
+===2019-07-16 14:19:05.378 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTM3U
+===2019-07-16 14:19:05.382 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-VERSION:3
+===2019-07-16 14:19:05.382 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-ALLOW-CACHE:YES
+===2019-07-16 14:19:05.382 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-MEDIA-SEQUENCE:0
+===2019-07-16 14:19:05.383 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-TARGETDURATION:15
+===2019-07-16 14:19:05.384 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXT-X-DISCONTINUITY
+===2019-07-16 14:19:05.384 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.558, no desc
+===2019-07-16 14:19:05.385 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-0.ts
+===2019-07-16 14:19:05.385 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.147, no desc
+===2019-07-16 14:19:05.386 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-1.ts
+===2019-07-16 14:19:05.387 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:10.894, no desc
+===2019-07-16 14:19:05.387 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-2.ts
+===2019-07-16 14:19:05.388 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:11.317, no desc
+===2019-07-16 14:19:05.389 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-3.ts
+===2019-07-16 14:19:05.389 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is #EXTINF:6.539, no desc
+===2019-07-16 14:19:05.390 INFO  com.xsmart.camera.util.M3U8Util Line:69  - this line is onepiece-4.ts

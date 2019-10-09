@@ -1,0 +1,22 @@
+===2019-07-02 13:37:06.490 WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Line:557 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'ffmpegController' method 
+public void com.xsmart.camera.controller.FfmpegController.stopPushStream(javax.servlet.http.HttpServletRequest,java.lang.String)
+to {[/pushStream/{streamPath}],methods=[POST]}: There is already 'ffmpegController' bean method
+public void com.xsmart.camera.controller.FfmpegController.startPush(javax.servlet.http.HttpServletRequest,java.lang.String) mapped.
+===2019-07-02 13:37:06.525 WARN  org.springframework.boot.context.event.EventPublishingRunListener Line:136 - Error calling ApplicationEventListener
+java.lang.NoSuchMethodError: ch.qos.logback.classic.LoggerContext.removeObject(Ljava/lang/String;)V
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.markAsUninitialized(LogbackLoggingSystem.java:308) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.cleanUp(LogbackLoggingSystem.java:202) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationFailedEvent(LoggingApplicationListener.java:219) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:184) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) [spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:158) [spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) [spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) [spring-context-5.0.4.RELEASE.jar:5.0.4.RELEASE]
+	at org.springframework.boot.context.event.EventPublishingRunListener.failed(EventPublishingRunListener.java:126) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplicationRunListeners.callFailedListener(SpringApplicationRunListeners.java:91) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplicationRunListeners.failed(SpringApplicationRunListeners.java:84) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:804) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
+	at com.xsmart.camera.GodeyeStart.main(GodeyeStart.java:13) [classes/:na]
