@@ -100,18 +100,29 @@ public class StoredTask implements Runnable {
                     }
 
                 }
-                String outPutPath = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId()+"/"+dto.getCameraId();
-                String cameraTcUrl = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId();
-                String PID = srsService.getPID(outPutPath);
+                String outPutPathForOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-"+dto.getCameraId()+"/"+dto.getCameraId();
+                String outPutPathForIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId()+"/"+dto.getCameraId();
+
+                String cameraTcUrlForOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-"+dto.getCameraId();
+                String cameraTcUrlForIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId();
+
+                String PIDForOut = srsService.getPID(outPutPathForOut);
+                String PIDForIn = srsService.getPID(outPutPathForIn);
+                String PID = PIDForIn != null?PIDForIn:PIDForOut;
+                String cameraTcUrl = PIDForIn != null?cameraTcUrlForIn:cameraTcUrlForOut;
+
                 logger.info("find camera : {} stream process is {}",cameraTcUrl,PID);
                 if(PID != null){
+                    //PID存在，但是推流客户端不存在
                     ClientResponse response = srsService.getClients();
                     List<SrsClient> clientList = response.getClients();
                     boolean cameraAlive = false;
+                    boolean viewer = false;//观众
                     for(SrsClient client:clientList){
-                        if(client.getTcUrl().equals(cameraTcUrl)){
+                        if(client.getTcUrl().equals(cameraTcUrlForIn)){
                             cameraAlive = true;
-                            break;
+                        }else if(client.getTcUrl().equals(cameraTcUrlForOut)){
+                            viewer = true;
                         }
                     }
                     if(!cameraAlive){
@@ -131,8 +142,36 @@ public class StoredTask implements Runnable {
                             logger.error("startPushStream occur an error",e);
                         }
                     }
-
-
+                    if(cameraAlive&&!viewer){
+                        //进程存在，但是没有观众，停止推流
+                        logger.info("camera client is alive but no player ,close stream {}",cameraTcUrl);
+                        srsService.closeLinuxProcess(PID);
+                    }
+                }else{
+                    //不存在进程，就不存在推流客户端--isPublish==true，
+                    ClientResponse response = srsService.getClients();
+                    List<SrsClient> clientList = response.getClients();
+                    boolean viewing = false;
+                    for(SrsClient client:clientList){
+                        if(client.getTcUrl().equals(cameraTcUrl)){
+                            //有观众
+                            viewing = true;
+                            break;
+                        }
+                    }
+                    if(viewing){
+                        //启动推流
+                        logger.info("stream is not exist but somebody is viewing,process will be started soon {}",cameraTcUrl);
+                        List<String> command = ffmpegUtil.buildPushStreamCommand(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),dto.getVcodec(),true);
+                        try {
+                            //调用线程命令进行转码
+                            ProcessBuilder builder = new ProcessBuilder(command);
+                            builder.command(command);
+                            builder.start();
+                        } catch (Exception e) {
+                            logger.error("startPushStream occur an error",e);
+                        }
+                    }
                 }
             }
 

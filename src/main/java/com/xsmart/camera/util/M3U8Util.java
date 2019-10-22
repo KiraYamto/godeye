@@ -278,12 +278,27 @@ public class M3U8Util {
         for(File file:fileArr){
             file.renameTo(new File(directory+"/"+file.getName()));
         }
+    }
+    public List<String> getAllMp4File(String filePath,String prePath){
+        File mp4Directory = new File(filePath);
+        if(!mp4Directory.exists()){
+            logger.warn("mp4Directory {}is not exists! please check",filePath);
+            return null;
+        }
 
-
+        List<String> fileList = new ArrayList<>();
+        File[] fileArr = mp4Directory.listFiles();
+        for(File file:fileArr){
+            if(file.getName().endsWith(Constants.MP4_SUFFIX)){
+                fileList.add(prePath+"/"+file.getName());
+            }
+        }
+        return fileList;
     }
 
     public void removeAllFile(String path){
         File m3u8Dir = new File(path);
+
         if(!m3u8Dir.exists()){
             logger.warn("m3u8Dir {} is not exists! please check",path);
             return;

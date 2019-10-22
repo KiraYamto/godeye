@@ -84,12 +84,12 @@ public class SrsCallbackController {
             List<SrsClient> clientList = map.get(closeClient.getStream());
             if(clientList != null ){
                 logger.info("publishClient  has {} players",clientList.size());
-                if(clientList.size() <= 2 ){
-                    //没有播放者了，只有推流服务端+自己
-                    for(SrsClient client:clientList) {
-                        srsService.kickoffClient(client);
-                    }
-                }
+//                if(clientList.size() <= 1 ){
+//                    //没有播放者了，只有推流服务端+自己
+//                    for(SrsClient client:clientList) {
+//                        srsService.kickoffClient(client);
+//                    }
+//                }
 
             }
         }

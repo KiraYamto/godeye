@@ -42,6 +42,7 @@ public class Constants {
         BUSY(409,"server busy,retry after a later"),
         NULL_PARAMETER(405," parameter not allowed null!"),
         NOT_EXIST_FILEPATH(406," FILEPATH is not exists!"),
+
         ERROR(500,"server occur an error!");
         private int code;
         private String desc;

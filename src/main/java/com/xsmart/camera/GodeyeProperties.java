@@ -6,12 +6,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tian.xubo
+ * @author tian.xubo33
  * @created 2019 - 07 - 01 15:38
  */
 @Component
 @Configuration
-@PropertySource("classpath:config/godeye124.properties")
+@PropertySource("classpath:config/godeye_local.properties")
 public class GodeyeProperties {
 
     @Value("${srs.host}")
@@ -24,8 +24,12 @@ public class GodeyeProperties {
     private String replayHost;
     @Value("${srs.server.port}")
     private String srsServerPort;
+    @Value("${srs.server.out.port}")
+    private String srsServerOutPort;
+
     @Value("${srs.http.port}")
     private String srsHttpPort;
+
     @Value("${srs.api.v1.versions}")
     private String versions;
     @Value("${srs.api.v1.summaries}")
@@ -83,6 +87,14 @@ public class GodeyeProperties {
     @Value("${monitor.http.callback}")
     private String monitorHttpCallback;
 
+
+    public String getSrsServerOutPort() {
+        return srsServerOutPort;
+    }
+
+    public void setSrsServerOutPort(String srsServerOutPort) {
+        this.srsServerOutPort = srsServerOutPort;
+    }
 
     public String getInnerHost() {
         return innerHost;

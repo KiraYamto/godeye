@@ -37,7 +37,7 @@ public class SrsServiceImpl implements SrsService {
     public String getStreams() {
         logger.info("=======SrsServiceImpl getStreams begin ===== ");
         StringBuffer urlBuffer = new StringBuffer(protocolHttp).append("://")
-                .append(godeyeProperties.getSrsHost()).append(":").append(godeyeProperties.getSrsHttpPort())
+                .append(godeyeProperties.getInnerHost()).append(":").append(godeyeProperties.getSrsHttpPort())
                 .append(godeyeProperties.getStreams());
         String result = restTemplate.getForObject(urlBuffer.toString(),String.class);
         logger.info("=======SrsServiceImpl getStreams end and response is \r\n {}===== ",result);
@@ -58,7 +58,7 @@ public class SrsServiceImpl implements SrsService {
         logger.info("=======SrsServiceImpl getClientMap begin ===== ");
         Map<Long, List<SrsClient>> map = new HashMap<>();
         StringBuffer urlBuffer = new StringBuffer(protocolHttp).append("://")
-                .append(godeyeProperties.getSrsHost()).append(":").append(godeyeProperties.getSrsHttpPort())
+                .append(godeyeProperties.getInnerHost()).append(":").append(godeyeProperties.getSrsHttpPort())
                 .append(godeyeProperties.getClients());
         ClientResponse result = restTemplate.getForObject(urlBuffer.toString(), ClientResponse.class);
         if(result != null && result.getClients() != null){
@@ -79,7 +79,7 @@ public class SrsServiceImpl implements SrsService {
     public void kickoffClient(SrsClient client) {
         logger.info("=======SrsServiceImpl kickoffClient begin ===== ");
         StringBuffer urlBuffer = new StringBuffer(protocolHttp).append("://")
-                .append(godeyeProperties.getSrsHost()).append(":").append(godeyeProperties.getSrsHttpPort())
+                .append(godeyeProperties.getInnerHost()).append(":").append(godeyeProperties.getSrsHttpPort())
                 .append(godeyeProperties.getClients()).append("/").append(client.getId());
         restTemplate.delete(urlBuffer.toString());
         //检查进程在不在

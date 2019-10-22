@@ -21,8 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -137,10 +136,15 @@ public class FfmpegController {
         //rtmpd地址
         //response.setOther(outPutPath);
         //m3u8地址
-        response.setOther(m3U8Util.transformAddr(outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()),godeyeProperties.getSrsServerPort()));
+        //response.setOther(m3U8Util.transformAddr(outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()),godeyeProperties.getSrsServerPort()));
         //nginx映射地址
         logger.info("=======http request playStream end response is {} ===== ",JSON.toJSONString(response));
-
+        String m3u8Addr = m3U8Util.transformAddr(outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()),godeyeProperties.getSrsServerPort());
+        Map<String,String> map = new HashMap<>();
+        outPutPath = outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()).replace(godeyeProperties.getSrsServerPort(),godeyeProperties.getSrsServerOutPort());
+        map.put("RTMP",outPutPath);
+        map.put("M3U8",m3u8Addr);
+        response.setOther(map);
        // String nginxPath = godeyeProperties.getNginxLivePath()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId()+Constants.M3U8_SUFFIX;
         //response.setOther(nginxPath);
         return response;
@@ -164,8 +168,8 @@ public class FfmpegController {
                 String PID = srsService.getPID(outPutPath);
                 if(PID != null && players == 0){
                     srsService.closeLinuxProcess(PID);
-                    /*String m3u8Dir = godeyeProperties.getTsBasePath()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
-                    m3U8Util.removeAllFile(m3u8Dir);*/
+                    String m3u8Dir = godeyeProperties.getTsBasePath()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
+                    m3U8Util.removeAllFile(m3u8Dir);
                 }
             }
             response.setCode(Constants.CameraResponse.SUCCESS.getCode());
@@ -373,6 +377,29 @@ public class FfmpegController {
     }
 
 
+
+    //关闭播放窗口
+    @RequestMapping(value = {"/getRecordFile"},method = {RequestMethod.POST})
+    public CameraResponse getRecordFile(@RequestBody String request){
+        logger.info("=======http request getRecordFile begin request is {} ===== ",request);
+        PlayRequest playRequest = JSON.parseObject(request,PlayRequest.class);
+
+        CameraResponse response = new CameraResponse();
+        GstCameraReplayConfigDto replayConfigDto = new GstCameraReplayConfigDto();
+        replayConfigDto.setCameraId(playRequest.getDeviceId());
+        try {
+            response.setCode(Constants.CameraResponse.SUCCESS.getCode());
+            response.setDesc(Constants.CameraResponse.SUCCESS.getDesc());
+            String prePath = Constants.PROTOCOL_HTTP+"://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getNginxProxyPort()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
+            List<String> fileList = this.m3U8Util.getAllMp4File(godeyeProperties.getTsBasePath()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId(),prePath);
+            response.setOther(fileList);
+        } catch (Exception e) {
+            logger.error("stopStream getRecordFile operate database occur an error!",e);
+            response.setCode(Constants.CameraResponse.ERROR.getCode());
+            response.setDesc(Constants.CameraResponse.ERROR.getDesc());
+        }
+        return response;
+    }
 
     public static void main(String[] args) {
 
