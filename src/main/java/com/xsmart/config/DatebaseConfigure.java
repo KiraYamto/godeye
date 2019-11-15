@@ -13,8 +13,6 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 public class DatebaseConfigure {
-    @Value("${spring.datasource.url}")
-    private String url;
     @Autowired
     private Environment env;
     @Bean

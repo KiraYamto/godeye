@@ -11,9 +11,9 @@ import java.util.List;
 public interface ReplayConfigDao {
 
     List<GstCameraReplayConfigDto> queryReplayConfigList()throws Exception;
-    void insertReplayConfig(GstCameraReplayConfigDto replayConfigDto)throws Exception;
-    void updateReplayConfig(GstCameraReplayConfigDto replayConfigDto)throws Exception;
+    GstCameraReplayConfigDto insertReplayConfig(GstCameraReplayConfigDto replayConfigDto)throws Exception;
+    GstCameraReplayConfigDto updateReplayConfig(GstCameraReplayConfigDto replayConfigDto)throws Exception;
     GstCameraReplayConfigDto queryReplayConfigByCameraId(GstCameraReplayConfigDto replayConfigDto)throws Exception;
-
+    GstCameraReplayConfigDto deleteReplayConfigByCameraId(GstCameraReplayConfigDto replayConfigDto)throws Exception;
 
 }
