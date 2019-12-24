@@ -1,0 +1,54 @@
+srs:
+  os: linux
+  host:
+    public: 192.168.1.102
+    private: 192.168.1.102
+  dns:
+    livestream: 192.168.1.102
+    replaystream: ge.replaystream.com
+  port:
+    server:
+      orign: 1935
+      proxy: 1935
+    http:
+      orign: 1985
+      proxy: 1985
+    nginx:
+      orign: 80
+      proxy: 80
+  api:
+    v1:
+      versions: /api/v1/versions
+      summaries: /api/v1/summaries
+      rusages: /api/v1/rusages
+      self_proc_stats: /api/v1/self_proc_stats
+      system_proc_stats: /api/v1/system_proc_stats
+      meminfos: /api/v1/meminfos
+      authors: /api/v1/authors
+      features: /api/v1/features
+      requests: /api/v1/requests
+      vhosts: /api/v1/vhosts
+      streams: /api/v1/streams
+      clients: /api/v1/clients
+      configs: /api/v1/configs
+  pre:
+    screenshot: http://192.168.1.102/godeye/screenshot
+    livestream: http://192.168.1.102/godeye/livestream
+    monitor: http://192.168.1.102/godeye/monitor
+ffmpeg:
+  file:
+    testtwo: /home/kira/app/video/twopiece.mp4
+    testone: /home/kira/app/video/onepiece.mp4
+  path:
+    linux: /usr/local/ffmpeg/bin/ffmpeg
+    window: E:\\Ztesoft\\money\\godeye\\ffmpeg\\bin\\ffmpeg
+    output: rtmp://192.168.1.102:1935/live/onepiece
+    monitor: /home/kira/app/godeye/monitor
+    screenshot: /home/kira/app/godeye/screen
+    ts: /usr/local/srs/objs/nginx/html
+  bitrate: 128k
+http:
+  callback:
+    record: http://192.168.1.102:8001/godeye/callback/record
+    monitor: http://120.76.74.34:8891/serviceManager/videoAiWarn
+

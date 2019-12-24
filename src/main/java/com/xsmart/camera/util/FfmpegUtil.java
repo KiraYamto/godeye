@@ -1,6 +1,5 @@
 package com.xsmart.camera.util;
 
-import com.alibaba.fastjson.JSON;
 import com.xsmart.camera.GodeyeProperties;
 import com.xsmart.config.Constants;
 import org.slf4j.Logger;
@@ -34,13 +33,10 @@ public class FfmpegUtil {
         }else{
             command.add(godeyeProperties.getFfmpegWinPath());
         }
-        //root/godeye/ffmpeg-4.1.3/ffmpeg -i rtsp://admin:gst.123456@192.168.31.64:554/Streaming/Channels/101 -rtsp_transport tcp -vcodec h264 -acodec aac -f flv rtmp://172.21.64.133:1935/hikvision/101/
-        //rtmp://172.21.64.133:1935/hikvision/101/2019-07-18
-
-        ///root/godeye/ffmpeg-4.1.3/ffmpeg -re -i /root/godeye/twopiece.mp4 -vcodec copy -acodec copy -f flv -y rtmp://172.21.64.133:1935/live2/twopiece
         String outPutPath = null;
         if(live){
              outPutPath = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+provider+"-"+deviceId+"/"+deviceId;
+
         }else{
              outPutPath = "rtmp://"+godeyeProperties.getReplayHost()+":"+godeyeProperties.getSrsServerPort()+"/replay-"+provider+"-"+deviceId+"/"+deviceId;
         }
@@ -72,16 +68,50 @@ public class FfmpegUtil {
             command.add("-i");
             command.add(streamPath);
             command.add("-c:v");
-            command.add("libx264");
+            if(provider.contains("dahua")){
+                command.add("copy");
+            }else {
+                command.add("libx264");
+            }
             command.add("-ar");//音频采样率
             command.add("44100");
             command.add("-c:a");
-            command.add("aac");
+            command.add("copy");
             command.add("-f");
             command.add("flv");
             command.add("-y");
             command.add(outPutPath);
         }
+        return command;
+
+    }
+
+
+    public List<String> buildPushStreamCommandMobility(String streamPath, String provider, String deviceId,String bitrate){
+        List<String> command = new ArrayList<String>();
+        command.add(godeyeProperties.getFfmpegLinuxPath());
+        String outPutPathMobility = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+provider+"-mobility-"+deviceId+"/"+deviceId;
+        command.add("-re");
+        command.add("-rtsp_transport");
+        command.add("tcp");
+        command.add("-i");
+        command.add(streamPath);
+        command.add("-c:v");
+        if(provider.contains("dahua")){
+            command.add("copy");
+        }else {
+            command.add("libx264");
+        }
+        command.add("-ar");//音频采样率
+        command.add("44100");
+        command.add("-c:a");
+        command.add("copy");
+        command.add("-b");
+        command.add(bitrate);
+        command.add("-f");
+        command.add("flv");
+        command.add("-y");
+        command.add(outPutPathMobility);
         return command;
 
     }

@@ -5,15 +5,15 @@ server:
 logging:
   config: classpath:logback.xml
 spring:
-  redis:
-    cluster:
-     max-redirects: 8
-     nodes: 192.168.1.102:7001,192.168.1.102:7002,192.168.1.102:7003,192.168.1.102:7004,192.168.1.102:7005,192.168.1.102:7006
-    host: 10.45.47.48
-    port: 6379
-    database: 1
-    timeout: 2000
-    password: 123456
+#  redis:
+#    cluster:
+#     max-redirects: 8
+#     nodes: 192.168.1.102:7001,192.168.1.102:7002,192.168.1.102:7003,192.168.1.102:7004,192.168.1.102:7005,192.168.1.102:7006
+#    host: 10.45.47.48
+#    port: 6379
+#    database: 1
+#    timeout: 2000
+#    password: 123456
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #    url: jdbc:mysql://gstvip:3306/gstdb?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull

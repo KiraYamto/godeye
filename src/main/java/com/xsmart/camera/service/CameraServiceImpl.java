@@ -2,11 +2,9 @@ package com.xsmart.camera.service;
 
 import com.xsmart.camera.GodeyeProperties;
 import com.xsmart.camera.srs.v2.model.GstCameraReplayConfigDto;
-import com.xsmart.camera.srs.v2.model.MonitorRequest;
 import com.xsmart.camera.thread.FileMonitorTask;
 import com.xsmart.camera.thread.StoredTask;
 import com.xsmart.camera.util.FfmpegUtil;
-import com.xsmart.camera.util.M3U8Util;
 import com.xsmart.config.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +30,7 @@ public class CameraServiceImpl implements CameraService{
     @Autowired
     private ReplayConfigService replayConfigService;
 
-    @Autowired
+    //@Autowired
     private GodeyeProperties godeyeProperties;
     @Autowired
     private FfmpegUtil ffmpegUtil;

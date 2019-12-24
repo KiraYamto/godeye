@@ -28,7 +28,7 @@ import java.util.Map;
  * @author liang.aozhao
  * @created 2019/1/24 15:00
  */
-@Configuration
+//@Configuration
 public class RedisConfig {
     @Value("${spring.redis.cluster.nodes}")
     private String clusterNode;

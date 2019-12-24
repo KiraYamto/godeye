@@ -76,6 +76,24 @@ public class SrsServiceImpl implements SrsService {
     }
 
     @Override
+    public Map<Long, List<SrsClient>> getClientMap(ClientResponse clientResponse) {
+        Map<Long, List<SrsClient>> map = new HashMap<>();
+        ClientResponse result = clientResponse;
+        if(result != null && result.getClients() != null){
+            for(SrsClient client:result.getClients()){
+                List<SrsClient> clientList = map.get(client.getStream());
+                if(clientList == null){
+                    clientList = new ArrayList<>();
+                }
+                clientList.add(client);
+                map.put(client.getStream(),clientList);
+            }
+        }
+        logger.info("=======SrsServiceImpl getClientMap end and response is \r\n {}===== ",map);
+        return map;
+    }
+
+    @Override
     public void kickoffClient(SrsClient client) {
         logger.info("=======SrsServiceImpl kickoffClient begin ===== ");
         StringBuffer urlBuffer = new StringBuffer(protocolHttp).append("://")
@@ -108,7 +126,9 @@ public class SrsServiceImpl implements SrsService {
             while((line = reader.readLine()) != null){
                 if(line.contains(match)){
                     String[] strs = line.split("\\s+");
-                    logger.info("judge process line is {} and commnad is {} and str last is {}-----> ",line,command,strs[7]);
+                    if(logger.isDebugEnabled()){
+                        logger.debug("judge process line is {} and commnad is {} and str last is {}-----> ",line,command,strs[7]);
+                    }
                     if(strs[7].indexOf(godeyeProperties.getFfmpegLinuxPath()) != -1){
                         logger.info("find line is {} and commnad is {}-----> ",line,command);
                         return strs[1];

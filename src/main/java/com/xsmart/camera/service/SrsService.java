@@ -18,6 +18,7 @@ public interface SrsService {
      String getStreams() ;
      ClientResponse getClients();
      Map<Long, List<SrsClient>> getClientMap();
+     Map<Long, List<SrsClient>> getClientMap(ClientResponse clientResponse);
      void kickoffClient(SrsClient client);
      String getPID(String command);
      void closeLinuxProcess(String Pid);

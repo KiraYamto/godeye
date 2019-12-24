@@ -1,20 +1,15 @@
 package com.xsmart.camera;
 
-import com.xsmart.camera.util.BeanFactory;
-import com.xsmart.camera.util.YamlPropertySourceFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
  * @author tian.xubo
- * @created 2019 - 07 - 01 15:38
+ * @created 2019 - 12 - 08 11:44
  */
 @Component
-@PropertySource(value = {"classpath:config/godeye.yml"}, factory = YamlPropertySourceFactory.class)
-public class GodeyeProperties {
-
+public class TestYml {
     @Value("${srs.os}")
     private String serverOs;
     @Value("${srs.host.public}")
@@ -87,14 +82,11 @@ public class GodeyeProperties {
     private String monitorFilePath;
     @Value("${ffmpeg.path.screenshot}")
     private String screenshotPath;
-    @Value("${ffmpeg.bitrate}")
-    private String bitrate;
 
     @Value("${http.callback.record}")
     private String recordCallback;
     @Value("${http.callback.monitor}")
     private String monitorHttpCallback;
-
 
     public String getServerOs() {
         return serverOs;
@@ -102,14 +94,6 @@ public class GodeyeProperties {
 
     public void setServerOs(String serverOs) {
         this.serverOs = serverOs;
-    }
-
-    public String getSrsHost() {
-        return srsHost;
-    }
-
-    public void setSrsHost(String srsHost) {
-        this.srsHost = srsHost;
     }
 
     public String getInnerHost() {
@@ -376,22 +360,11 @@ public class GodeyeProperties {
         this.monitorHttpCallback = monitorHttpCallback;
     }
 
-    public String getBitrate() {
-        return bitrate;
+    public String getSrsHost() {
+        return srsHost;
     }
 
-    public void setBitrate(String bitrate) {
-        this.bitrate = bitrate;
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(GodeyeStart.class);
-        TestYml testYml = BeanFactory.lookUp(TestYml.class);
-
-        System.out.println(testYml.getSrsHost());
-       // GodeyePropertiesYml godeyePropertiesYml = BeanFactory.lookUp(GodeyePropertiesYml.class);
-
-       // System.out.println(godeyePropertiesYml.getSrsHost());
-
+    public void setSrsHost(String srsHost) {
+        this.srsHost = srsHost;
     }
 }

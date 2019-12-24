@@ -22,7 +22,7 @@ public class TsRecordTask implements Runnable{
     private String startFile;
     private RecordRequest recordRequest;
     private GodeyeProperties godeyeProperties;
-    public TsRecordTask(RecordRequest recordRequest,GodeyeProperties godeyeProperties,M3U8Util m3U8Util, FfmpegUtil ffmpegUtil, String startFile) {
+    public TsRecordTask(RecordRequest recordRequest, GodeyeProperties godeyeProperties, M3U8Util m3U8Util, FfmpegUtil ffmpegUtil, String startFile) {
         this.m3U8Util = m3U8Util;
         this.ffmpegUtil = ffmpegUtil;
         this.startFile = startFile;

@@ -1,5 +1,5 @@
 ===2019-07-02 11:26:33.998 ERROR org.springframework.boot.SpringApplication Line:833 - Application run failed
-java.lang.IllegalArgumentException: No ConfigurationProperties annotation found on  'com.xsmart.camera.GodeyeProperties'.
+java.lang.IllegalArgumentException: No ConfigurationProperties annotation found on  'com.xsmart.camera.GodeyePropertiesBase'.
 	at org.springframework.util.Assert.notNull(Assert.java:193) ~[spring-core-5.0.4.RELEASE.jar:5.0.4.RELEASE]
 	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.assertHasAnnotation(EnableConfigurationPropertiesImportSelector.java:126) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
 	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.registerBeanDefinition(EnableConfigurationPropertiesImportSelector.java:119) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
@@ -26,7 +26,7 @@ java.lang.IllegalArgumentException: No ConfigurationProperties annotation found 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1234) [spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
 	at com.xsmart.camera.GodeyeStart.main(GodeyeStart.java:13) [classes/:na]
 ===2019-07-02 11:29:44.828 ERROR org.springframework.boot.SpringApplication Line:833 - Application run failed
-java.lang.IllegalArgumentException: No ConfigurationProperties annotation found on  'com.xsmart.camera.GodeyeProperties'.
+java.lang.IllegalArgumentException: No ConfigurationProperties annotation found on  'com.xsmart.camera.GodeyePropertiesBase'.
 	at org.springframework.util.Assert.notNull(Assert.java:193) ~[spring-core-5.0.4.RELEASE.jar:5.0.4.RELEASE]
 	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.assertHasAnnotation(EnableConfigurationPropertiesImportSelector.java:126) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]
 	at org.springframework.boot.context.properties.EnableConfigurationPropertiesImportSelector$ConfigurationPropertiesBeanRegistrar.registerBeanDefinition(EnableConfigurationPropertiesImportSelector.java:119) ~[spring-boot-2.0.0.RELEASE.jar:2.0.0.RELEASE]

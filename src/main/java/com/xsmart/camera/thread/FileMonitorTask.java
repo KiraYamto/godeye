@@ -6,7 +6,6 @@ import com.xsmart.camera.service.ReplayConfigService;
 import com.xsmart.camera.service.ReplayConfigServiceImpl;
 import com.xsmart.camera.service.SrsService;
 import com.xsmart.camera.service.SrsServiceImpl;
-import com.xsmart.camera.srs.v2.model.GstCameraReplayConfigDto;
 import com.xsmart.camera.srs.v2.model.MonitorRequest;
 import com.xsmart.camera.util.BeanFactory;
 import com.xsmart.camera.util.FfmpegUtil;
@@ -17,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

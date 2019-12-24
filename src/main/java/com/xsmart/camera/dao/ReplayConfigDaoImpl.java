@@ -39,7 +39,7 @@ public class ReplayConfigDaoImpl implements ReplayConfigDao {
         return list;
     }
 
-    @CachePut(value = "ReplayConfig" ,key = "#p0.cameraId")
+    //@CachePut(value = "ReplayConfig" ,key = "#p0.cameraId")
     @Override
     public GstCameraReplayConfigDto insertReplayConfig(GstCameraReplayConfigDto replayConfigDto) throws Exception {
         String sql = "insert into gst_camera_replay_config (CONFIG_ID,CAMERA_ID,REPLAY_ON,PROVIDER,RTSP_ADDR,TS_FILE_PATH,MONITOR_FILE_PATH,VCODEC,PLAYER)  values(?,?,?,?,?,?,?,?,?)";
@@ -52,7 +52,7 @@ public class ReplayConfigDaoImpl implements ReplayConfigDao {
             return null;
         }
     }
-    @CachePut(value = "ReplayConfig" ,key = "#p0.cameraId")
+    //@CachePut(value = "ReplayConfig" ,key = "#p0.cameraId")
     @Override
     public GstCameraReplayConfigDto updateReplayConfig(GstCameraReplayConfigDto replayConfigDto) throws Exception {
         String sql = "UPDATE gst_camera_replay_config A\n" +
@@ -67,7 +67,7 @@ public class ReplayConfigDaoImpl implements ReplayConfigDao {
        }
 
     }
-    @Cacheable(value = "ReplayConfig" ,key = "#p0.cameraId")
+    //@Cacheable(value = "ReplayConfig" ,key = "#p0.cameraId")
     @Override
     public GstCameraReplayConfigDto queryReplayConfigByCameraId(GstCameraReplayConfigDto replayConfigDto) throws Exception {
         String sql = "Select A.CONFIG_ID AS configId,\n" +
@@ -88,7 +88,7 @@ public class ReplayConfigDaoImpl implements ReplayConfigDao {
         return null;
     }
 
-    @CacheEvict(value = "ReplayConfig" ,key = "#p0.cameraId")
+    //@CacheEvict(value = "ReplayConfig" ,key = "#p0.cameraId")
     @Override
     public GstCameraReplayConfigDto deleteReplayConfigByCameraId(GstCameraReplayConfigDto replayConfigDto) throws Exception {
         String sql = "delete from gst_camera_replay_config where camera_id = ?";

@@ -7,23 +7,21 @@ import com.xsmart.camera.service.ReplayConfigService;
 import com.xsmart.camera.service.SrsService;
 import com.xsmart.camera.srs.v2.model.GstCameraReplayConfigDto;
 import com.xsmart.camera.srs.v2.model.RePlayRequest;
-import com.xsmart.camera.thread.StoredTask;
 import com.xsmart.camera.util.FfmpegUtil;
 import com.xsmart.camera.util.M3U8Util;
 import com.xsmart.config.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author tian.xubo

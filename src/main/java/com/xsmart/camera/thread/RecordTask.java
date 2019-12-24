@@ -32,7 +32,7 @@ public class RecordTask implements Callable {
     private RecordRequest request;
 
     private GodeyeProperties godeyeProperties;
-    public RecordTask(RecordRequest request,SrsService srsService, FfmpegUtil ffmpegUtil, GodeyeProperties godeyeProperties,boolean stop) {
+    public RecordTask(RecordRequest request, SrsService srsService, FfmpegUtil ffmpegUtil, GodeyeProperties godeyeProperties, boolean stop) {
         this.srsService = srsService;
         this.ffmpegUtil = ffmpegUtil;
         this.stop = stop;

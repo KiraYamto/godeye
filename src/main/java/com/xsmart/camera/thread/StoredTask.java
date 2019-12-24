@@ -1,7 +1,10 @@
 package com.xsmart.camera.thread;
 
 import com.xsmart.camera.GodeyeProperties;
-import com.xsmart.camera.service.*;
+import com.xsmart.camera.service.ReplayConfigService;
+import com.xsmart.camera.service.ReplayConfigServiceImpl;
+import com.xsmart.camera.service.SrsService;
+import com.xsmart.camera.service.SrsServiceImpl;
 import com.xsmart.camera.srs.v2.model.ClientResponse;
 import com.xsmart.camera.srs.v2.model.GstCameraReplayConfigDto;
 import com.xsmart.camera.srs.v2.model.SrsClient;
@@ -48,7 +51,6 @@ public class StoredTask implements Runnable {
                 logger.info("no camera open replay function!");
                 return;
             }
-
             for(GstCameraReplayConfigDto dto:list){
                 //如果回放开启了，看下是否被意外终止了推流，如果推流进程不存在，则重新开启。
                 if(Constants.ReplayType.ON.getType() == dto.getReplayOn()){
@@ -98,81 +100,30 @@ public class StoredTask implements Runnable {
                         }
                         //如果进程存在，在判定是否到了凌晨转储时间，如果是，则停掉当前推流，转储之后新打开一个推流
                     }
-
                 }
                 String outPutPathForOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-"+dto.getCameraId()+"/"+dto.getCameraId();
                 String outPutPathForIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId()+"/"+dto.getCameraId();
+                String outPutPathMobilityOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-mobility"+"-"+dto.getCameraId()+"/"+dto.getCameraId();
+                String outPutPathMobilityIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-mobility"+"-"+dto.getCameraId()+"/"+dto.getCameraId();
 
                 String cameraTcUrlForOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-"+dto.getCameraId();
                 String cameraTcUrlForIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-"+dto.getCameraId();
+                String cameraTcUrlMobilityForOut = "rtmp://"+godeyeProperties.getSrsHost()+":"+godeyeProperties.getSrsServerOutPort()+"/"+dto.getProvider()+"-mobility"+"-"+dto.getCameraId();
+                String cameraTcUrlMobilityForIn = "rtmp://"+godeyeProperties.getInnerHost()+":"+godeyeProperties.getSrsServerPort()+"/"+dto.getProvider()+"-mobility"+"-"+dto.getCameraId();
 
                 String PIDForOut = srsService.getPID(outPutPathForOut);
                 String PIDForIn = srsService.getPID(outPutPathForIn);
-                String PID = PIDForIn != null?PIDForIn:PIDForOut;
-                String cameraTcUrl = PIDForIn != null?cameraTcUrlForIn:cameraTcUrlForOut;
+                String PIDMobilityForOut = srsService.getPID(outPutPathMobilityOut);
+                String PIDMobilityForIn = srsService.getPID(outPutPathMobilityIn);
 
-                logger.info("find camera : {} stream process is {}",cameraTcUrl,PID);
-                if(PID != null){
-                    //PID存在，但是推流客户端不存在
-                    ClientResponse response = srsService.getClients();
-                    List<SrsClient> clientList = response.getClients();
-                    boolean cameraAlive = false;
-                    boolean viewer = false;//观众
-                    for(SrsClient client:clientList){
-                        if(client.getTcUrl().equals(cameraTcUrlForIn)){
-                            cameraAlive = true;
-                        }else if(client.getTcUrl().equals(cameraTcUrlForOut)){
-                            viewer = true;
-                        }
-                    }
-                    if(!cameraAlive){
-                        //如果客户端掉线，但是进程还在，要把进程杀掉。重新推流
-                        srsService.closeLinuxProcess(PID);
-                        //String m3u8Dir = godeyeProperties.getTsBasePath()+"/"+dto.getProvider()+"-"+dto.getCameraId();
-                       // m3U8Util.removeAllFile(m3u8Dir);
-                        logger.info("camera client is disconnect,and the procees is colsed,stream will be started soon ,{}",cameraTcUrl);
-                        //启动推流
-                        List<String> command = ffmpegUtil.buildPushStreamCommand(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),dto.getVcodec(),true);
-                        try {
-                            //调用线程命令进行转码
-                            ProcessBuilder builder = new ProcessBuilder(command);
-                            builder.command(command);
-                            builder.start();
-                        } catch (Exception e) {
-                            logger.error("startPushStream occur an error",e);
-                        }
-                    }
-                    if(cameraAlive&&!viewer){
-                        //进程存在，但是没有观众，停止推流
-                        logger.info("camera client is alive but no player ,close stream {}",cameraTcUrl);
-                        srsService.closeLinuxProcess(PID);
-                    }
-                }else{
-                    //不存在进程，就不存在推流客户端--isPublish==true，
-                    ClientResponse response = srsService.getClients();
-                    List<SrsClient> clientList = response.getClients();
-                    boolean viewing = false;
-                    for(SrsClient client:clientList){
-                        if(client.getTcUrl().equals(cameraTcUrl)){
-                            //有观众
-                            viewing = true;
-                            break;
-                        }
-                    }
-                    if(viewing){
-                        //启动推流
-                        logger.info("stream is not exist but somebody is viewing,process will be started soon {}",cameraTcUrl);
-                        List<String> command = ffmpegUtil.buildPushStreamCommand(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),dto.getVcodec(),true);
-                        try {
-                            //调用线程命令进行转码
-                            ProcessBuilder builder = new ProcessBuilder(command);
-                            builder.command(command);
-                            builder.start();
-                        } catch (Exception e) {
-                            logger.error("startPushStream occur an error",e);
-                        }
-                    }
-                }
+                String PID = PIDForIn != null?PIDForIn:PIDForOut;
+                String PIDMobility = PIDMobilityForIn != null?PIDMobilityForIn:PIDMobilityForOut;
+
+                String cameraTcUrl = PIDForIn != null?cameraTcUrlForIn:cameraTcUrlForOut;
+                String cameraTcUrlMobility = PIDMobilityForIn != null?cameraTcUrlMobilityForIn:cameraTcUrlMobilityForOut;
+                logger.info("find camera : {}-mobility-{} stream process is {}---mobility--{}",cameraTcUrl,cameraTcUrlMobility,PID,PIDMobility);
+                restart(PID,cameraTcUrl,cameraTcUrlForIn,cameraTcUrlForOut,dto);
+                restart(PIDMobility,cameraTcUrlMobility,cameraTcUrlMobilityForIn,cameraTcUrlMobilityForOut,dto);
             }
 
         } catch (Exception e) {
@@ -182,6 +133,77 @@ public class StoredTask implements Runnable {
         logger.info("end run stored task now is {}",lastTime);
     }
 
+
+    public void restart(String PID, String cameraTcUrl, String cameraTcUrlForIn,String cameraTcUrlForOut,GstCameraReplayConfigDto dto ){
+        if(PID != null){
+            //PID存在，但是推流客户端不存在
+            ClientResponse response = srsService.getClients();
+            List<SrsClient> clientList = response.getClients();
+            boolean cameraAlive = false;
+            boolean viewer = false;//观众
+            for(SrsClient client:clientList){
+                if(client.getTcUrl().equals(cameraTcUrlForIn)){
+                    cameraAlive = true;
+                }else if(client.getTcUrl().equals(cameraTcUrlForOut)){
+                    viewer = true;
+                }
+            }
+            logger.info("camera {} cameraAlive is {} and this camera has some viewer is {}",cameraTcUrl,cameraAlive,viewer);
+            if(!cameraAlive){
+                //如果客户端掉线，但是进程还在，要把进程杀掉。重新推流
+                srsService.closeLinuxProcess(PID);
+                //String m3u8Dir = godeyeProperties.getTsBasePath()+"/"+dto.getProvider()+"-"+dto.getCameraId();
+                // m3U8Util.removeAllFile(m3u8Dir);
+                logger.info("camera client is disconnect,and the procees is colsed,stream will be started soon ,{}",cameraTcUrl);
+                //启动推流
+                List<String> command = ffmpegUtil.buildPushStreamCommand(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),dto.getVcodec(),true);
+                try {
+                    //调用线程命令进行转码
+                    ProcessBuilder builder = new ProcessBuilder(command);
+                    builder.command(command);
+                    builder.start();
+                } catch (Exception e) {
+                    logger.error("startPushStream occur an error",e);
+                }
+            }
+                   /* if(cameraAlive&&!viewer){
+                        //进程存在，但是没有观众，停止推流
+                        logger.info("camera client is alive but no player ,close stream {}",cameraTcUrl);
+                        //srsService.closeLinuxProcess(PID);
+                    }*/
+        }else{
+            //不存在进程，就不存在推流客户端--isPublish==true，
+            ClientResponse response = srsService.getClients();
+            List<SrsClient> clientList = response.getClients();
+            boolean viewing = false;
+            for(SrsClient client:clientList){
+                if(client.getTcUrl().equals(cameraTcUrl)){
+                    //有观众
+                    viewing = true;
+                    break;
+                }
+            }
+            if(viewing){
+                //启动推流
+                logger.info("stream is not exist but somebody is viewing,process will be started soon {}",cameraTcUrl);
+                List<String> command = null;
+                if(cameraTcUrl.contains("mobility")){
+                   command = ffmpegUtil.buildPushStreamCommandMobility(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),godeyeProperties.getBitrate());
+                }else{
+                   command = ffmpegUtil.buildPushStreamCommand(dto.getRtspAddr(),dto.getProvider(),dto.getCameraId(),dto.getVcodec(),true);
+                }
+                try {
+                    //调用线程命令进行转码
+                    ProcessBuilder builder = new ProcessBuilder(command);
+                    builder.command(command);
+                    builder.start();
+                } catch (Exception e) {
+                    logger.error("startPushStream occur an error",e);
+                }
+            }
+        }
+
+    }
     public  String excute(String[] cmds){
         try{
             //执行命令
