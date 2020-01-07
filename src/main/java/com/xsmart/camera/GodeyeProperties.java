@@ -169,7 +169,7 @@ public class GodeyeProperties {
     }
 
     public String getNginxShotPath() {
-        return nginxShotPath;
+        return "http://"+srsHost+":"+srsServerOutPort+nginxShotPath;
     }
 
     public void setNginxShotPath(String nginxShotPath) {
@@ -177,7 +177,7 @@ public class GodeyeProperties {
     }
 
     public String getNginxLivePath() {
-        return nginxLivePath;
+        return "http://"+srsHost+":"+srsServerOutPort+nginxLivePath;
     }
 
     public void setNginxLivePath(String nginxLivePath) {
@@ -185,7 +185,7 @@ public class GodeyeProperties {
     }
 
     public String getNginxMonitorPath() {
-        return nginxMonitorPath;
+        return "http://"+srsHost+":"+srsServerOutPort+nginxMonitorPath;
     }
 
     public void setNginxMonitorPath(String nginxMonitorPath) {
@@ -388,7 +388,10 @@ public class GodeyeProperties {
         SpringApplication.run(GodeyeStart.class);
         TestYml testYml = BeanFactory.lookUp(TestYml.class);
 
-        System.out.println(testYml.getSrsHost());
+        System.out.println(testYml.getNginxLivePath());
+        System.out.println(testYml.getNginxMonitorPath());
+        System.out.println(testYml.getNginxShotPath());
+
        // GodeyePropertiesYml godeyePropertiesYml = BeanFactory.lookUp(GodeyePropertiesYml.class);
 
        // System.out.println(godeyePropertiesYml.getSrsHost());
