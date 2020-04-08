@@ -70,11 +70,14 @@ public class FfmpegController {
     @RequestMapping(value = {"/playStream"},method = {RequestMethod.POST})
     public CameraResponse playStream(@RequestBody String request){
         logger.info("=======http request playStream begin request is {} ===== ",request);
+
         PlayRequest playRequest = JSON.parseObject(request,PlayRequest.class);
         //地址使用直播vhost
         String outPutPath = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
         String outPutPathMobility = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-mobility"+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
-
+        if(CameraStaticObject.getCameraMap().get(outPutPath) == null){
+            CameraStaticObject.getCameraMap().put(outPutPath,outPutPath);
+        }
         ///usr/local/srs/objs/nginx/html/replay-hikvision-150001 存放回放ts文件路径
         String tsFilePath = godeyeProperties.getTsBasePath()+"/replay-"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
         GstCameraReplayConfigDto replayConfigDto = new GstCameraReplayConfigDto();
@@ -105,13 +108,13 @@ public class FfmpegController {
             response.setCode(Constants.CameraResponse.ERROR.getCode());
             response.setDesc(Constants.CameraResponse.ERROR.getDesc());
         }
-
-        synchronized (this){
+        String PID = srsService.getPID(outPutPath);
+        String PIDMobility = srsService.getPID(outPutPathMobility);
+        synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
             logger.info("=====lock begin========");
-            String PID = srsService.getPID(outPutPath);
-            String PIDMobility = srsService.getPID(outPutPathMobility);
             if(PID == null){
                 //启动推流
+                //
                 List<String> command = ffmpegUtil.buildPushStreamCommand(playRequest.getStreamPath(),playRequest.getProvider(),playRequest.getDeviceId(),vcodec,true);
                 try {
                     //调用线程命令进行转码
@@ -157,93 +160,7 @@ public class FfmpegController {
 
 
 
-    @RequestMapping(value = {"/playStreamNvr"},method = {RequestMethod.POST})
-    public CameraResponse playStreamWithNVR(@RequestBody String request){
-        logger.info("=======http request playStream begin request is {} ===== ",request);
-        PlayRequest playRequest = JSON.parseObject(request,PlayRequest.class);
-        //地址使用直播vhost
-        String outPutPath = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
-        String outPutPathMobility = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-mobility"+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
 
-        ///usr/local/srs/objs/nginx/html/replay-hikvision-150001 存放回放ts文件路径
-        String tsFilePath = godeyeProperties.getTsBasePath()+"/replay-"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
-        GstCameraReplayConfigDto replayConfigDto = new GstCameraReplayConfigDto();
-        CameraResponse response = new CameraResponse();
-        replayConfigDto.setTsFilePath(tsFilePath);
-        replayConfigDto.setCameraId(playRequest.getDeviceId());
-        //默认不开启回放
-        replayConfigDto.setReplayOn(0);
-        //观看中，0无人观看，1有人观看。
-        replayConfigDto.setProvider(playRequest.getProvider());
-        replayConfigDto.setRtspAddr(playRequest.getStreamPath());
-        //视频编码格式，H264 H265，默认使用H264
-        String vcodec = playRequest.getVcodec() == null?Constants.VODEC_H264:playRequest.getVcodec();
-        replayConfigDto.setVcodec(vcodec);
-        try {
-            replayConfigDto.setConfigId(Long.parseLong(playRequest.getDeviceId()));
-            GstCameraReplayConfigDto configExist = this.replayConfigService.queryReplayConfigByCameraId(replayConfigDto);
-            if(configExist == null){
-                this.replayConfigService.insertReplayConfig(replayConfigDto);
-            }else {
-                int players = configExist.getPlayer()+1;
-                replayConfigDto.setPlayer(players);
-                logger.info("GstCameraReplayConfigDto is {} and players is {}",JSON.toJSONString(configExist),players);
-                this.replayConfigService.updateReplayConfig(replayConfigDto);
-            }
-        } catch (Exception e) {
-            logger.error("replaySet operate database occur an error!",e);
-            response.setCode(Constants.CameraResponse.ERROR.getCode());
-            response.setDesc(Constants.CameraResponse.ERROR.getDesc());
-        }
-
-        synchronized (this){
-            logger.info("=====lock begin========");
-            String PID = srsService.getPID(outPutPath);
-            String PIDMobility = srsService.getPID(outPutPathMobility);
-            if(PID == null){
-                //启动推流
-                List<String> command = ffmpegUtil.buildPushStreamCommand(playRequest.getStreamPath(),playRequest.getProvider(),playRequest.getDeviceId(),vcodec,true);
-                try {
-                    //调用线程命令进行转码
-                    ProcessBuilder builder = new ProcessBuilder(command);
-                    builder.command(command);
-                    builder.start();
-                } catch (Exception e) {
-                    logger.error("startPushStream occur an error",e);
-                }
-            }
-            if(PIDMobility == null){
-                //增加手机低码率配置
-                List<String> commandMobility = ffmpegUtil.buildPushStreamCommandMobility(playRequest.getStreamPath(),playRequest.getProvider(),playRequest.getDeviceId(),godeyeProperties.getBitrate());
-                try {
-                    //调用线程命令进行转码
-                    ProcessBuilder builder = new ProcessBuilder(commandMobility);
-                    builder.command(commandMobility);
-                    builder.start();
-                } catch (Exception e) {
-                    logger.error("startPushStream occur an error",e);
-                }
-            }
-            logger.info("=====lock end========");
-        }
-        response.setCode(Constants.CameraResponse.SUCCESS.getCode());
-        response.setDesc(Constants.CameraResponse.SUCCESS.getDesc());
-
-        logger.info("=======http request playStream end response is {} ===== ",JSON.toJSONString(response));
-        String m3u8Addr = m3U8Util.transformAddr(outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()),godeyeProperties.getSrsServerPort());
-        String m3u8AddrMobility = m3U8Util.transformAddr(outPutPathMobility.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()),godeyeProperties.getSrsServerPort());
-
-        Map<String,String> map = new HashMap<>();
-        outPutPath = outPutPath.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()).replace(godeyeProperties.getSrsServerPort(),godeyeProperties.getSrsServerOutPort());
-        outPutPathMobility = outPutPathMobility.replace(godeyeProperties.getLiveHost(),godeyeProperties.getSrsHost()).replace(godeyeProperties.getSrsServerPort(),godeyeProperties.getSrsServerOutPort());
-
-        map.put("RTMP",outPutPath);
-        map.put("RTMP-Mobility",outPutPathMobility);
-        map.put("M3U8",m3u8Addr);
-        map.put("M3U8-Mobility",m3u8AddrMobility);
-        response.setOther(map);
-        return response;
-    }
     //关闭播放窗口
     @RequestMapping(value = {"/closeStream"},method = {RequestMethod.POST})
     public CameraResponse closeStream(@RequestBody String request){
@@ -254,12 +171,16 @@ public class FfmpegController {
         CameraResponse response = new CameraResponse();
         GstCameraReplayConfigDto replayConfigDto = new GstCameraReplayConfigDto();
         replayConfigDto.setCameraId(playRequest.getDeviceId());
+        if(CameraStaticObject.getCameraMap().get(outPutPath) == null){
+            CameraStaticObject.getCameraMap().put(outPutPath,outPutPath);
+        }
         try {
             GstCameraReplayConfigDto gstCameraReplayConfigDto = this.replayConfigService.queryReplayConfigByCameraId(replayConfigDto);
             int players = gstCameraReplayConfigDto.getPlayer()-1 < 0 ? 0:gstCameraReplayConfigDto.getPlayer()-1;
             gstCameraReplayConfigDto.setPlayer(players);
             this.replayConfigService.updateReplayConfig(gstCameraReplayConfigDto);
-            synchronized (this){
+
+            synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
                 String PID = srsService.getPID(outPutPath);
                 String PIDMobility = srsService.getPID(outPutPathMobility);
                 if(PID != null && players == 0){
@@ -290,12 +211,15 @@ public class FfmpegController {
         String outPutPathMobility = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-mobility"+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
         CameraResponse response = new CameraResponse();
         GstCameraReplayConfigDto replayConfigDto = new GstCameraReplayConfigDto();
+        if(CameraStaticObject.getCameraMap().get(outPutPath) == null){
+            CameraStaticObject.getCameraMap().put(outPutPath,outPutPath);
+        }
         replayConfigDto.setCameraId(playRequest.getDeviceId());
         try {
             GstCameraReplayConfigDto gstCameraReplayConfigDto = this.replayConfigService.queryReplayConfigByCameraId(replayConfigDto);
             gstCameraReplayConfigDto.setPlayer(0);
             this.replayConfigService.updateReplayConfig(gstCameraReplayConfigDto);
-            synchronized (this){
+            synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
                 String PID = srsService.getPID(outPutPath);
                 String PIDMobility = srsService.getPID(outPutPathMobility);
                 logger.info("stop stream find process is  {}----{} and find command is {}---{}",PID,PIDMobility,outPutPath,outPutPathMobility);
@@ -445,6 +369,11 @@ public class FfmpegController {
     public CameraResponse screenshot(@RequestBody String request){
         logger.info("=======http request screenshot begin request is {}===== ", request);
         ScreenshotRequest screenshotRequest = JSON.parseObject(request,ScreenshotRequest.class);
+        if(!godeyeProperties.getInnerHost().equals(godeyeProperties.getSrsHost())){
+            String tempPath = screenshotRequest.getStreamPath().replaceAll(godeyeProperties.getSrsHost(),godeyeProperties.getInnerHost()).replaceAll(godeyeProperties.getSrsServerOutPort(),godeyeProperties.getSrsServerPort());
+            logger.info("====transfer outStreamPath {} to {}",screenshotRequest.getStreamPath(),tempPath);
+            screenshotRequest.setStreamPath(tempPath);
+        }
         logger.info("=======json parseobj is {}======",JSON.toJSONString(screenshotRequest));
         //判断文件夹是否存在
         File path = new File(godeyeProperties.getScreenshotPath());
