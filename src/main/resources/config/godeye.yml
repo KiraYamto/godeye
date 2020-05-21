@@ -51,4 +51,5 @@ http:
   callback:
     record: http://192.168.1.102:8001/godeye/callback/record
     monitor: http://120.76.74.34:8891/serviceManager/videoAiWarn
+    screenshot: http://124.237.76.85:53901/gstcore/videoManage/godEyeCallback
 

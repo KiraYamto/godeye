@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.util.Date;
@@ -61,11 +62,15 @@ public class FfmpegController {
 
     @Autowired
     private ReplayConfigService replayConfigService;
+
+    @Autowired
+    private RestTemplate restTemplate;
     /***
      * streamPath rtsp地址 或者测试文件地址，
      * rtsp://admin:gst.123456@192.168.31.64:554/Streaming/Channels/101
      * provider 网络摄像头供应商 例如 hikvision
      * deviceId 设备标识 150001
+     * isNvr ：true /false 是否直连摄像头 还是连接硬盘录像机
      */
     @RequestMapping(value = {"/playStream"},method = {RequestMethod.POST})
     public CameraResponse playStream(@RequestBody String request){
@@ -77,6 +82,13 @@ public class FfmpegController {
         String outPutPathMobility = "rtmp://"+godeyeProperties.getLiveHost()+":"+godeyeProperties.getSrsServerPort()+"/"+playRequest.getProvider()+"-mobility"+"-"+playRequest.getDeviceId()+"/"+playRequest.getDeviceId();
         if(CameraStaticObject.getCameraMap().get(outPutPath) == null){
             CameraStaticObject.getCameraMap().put(outPutPath,outPutPath);
+
+        }
+        //没有传值 默认false ，即直连设备
+        if(playRequest.getNvr() == null){
+            CameraStaticObject.getCameraIsNvrMap().put(playRequest.getDeviceId(),Boolean.FALSE);
+        }else{
+            CameraStaticObject.getCameraIsNvrMap().put(playRequest.getDeviceId(),playRequest.getNvr());
         }
         ///usr/local/srs/objs/nginx/html/replay-hikvision-150001 存放回放ts文件路径
         String tsFilePath = godeyeProperties.getTsBasePath()+"/replay-"+playRequest.getProvider()+"-"+playRequest.getDeviceId();
@@ -93,6 +105,8 @@ public class FfmpegController {
         String vcodec = playRequest.getVcodec() == null?Constants.VODEC_H264:playRequest.getVcodec();
         replayConfigDto.setVcodec(vcodec);
         try {
+            logger.info("=======start query database ===== ");
+
             replayConfigDto.setConfigId(Long.parseLong(playRequest.getDeviceId()));
             GstCameraReplayConfigDto configExist = this.replayConfigService.queryReplayConfigByCameraId(replayConfigDto);
             if(configExist == null){
@@ -110,6 +124,7 @@ public class FfmpegController {
         }
         String PID = srsService.getPID(outPutPath);
         String PIDMobility = srsService.getPID(outPutPathMobility);
+        logger.info("=======end query database ===== ");
         synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
             logger.info("=====lock begin========");
             if(PID == null){
@@ -117,6 +132,7 @@ public class FfmpegController {
                 //
                 List<String> command = ffmpegUtil.buildPushStreamCommand(playRequest.getStreamPath(),playRequest.getProvider(),playRequest.getDeviceId(),vcodec,true);
                 try {
+                    logger.info("push command is {}",command);
                     //调用线程命令进行转码
                     ProcessBuilder builder = new ProcessBuilder(command);
                     builder.command(command);
@@ -129,6 +145,8 @@ public class FfmpegController {
                  //增加手机低码率配置
                 List<String> commandMobility = ffmpegUtil.buildPushStreamCommandMobility(playRequest.getStreamPath(),playRequest.getProvider(),playRequest.getDeviceId(),godeyeProperties.getBitrate());
                 try {
+                    logger.info("=====start push stream common========");
+
                     //调用线程命令进行转码
                     ProcessBuilder builder = new ProcessBuilder(commandMobility);
                     builder.command(commandMobility);
@@ -180,7 +198,7 @@ public class FfmpegController {
             gstCameraReplayConfigDto.setPlayer(players);
             this.replayConfigService.updateReplayConfig(gstCameraReplayConfigDto);
 
-            synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
+        //    synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
                 String PID = srsService.getPID(outPutPath);
                 String PIDMobility = srsService.getPID(outPutPathMobility);
                 if(PID != null && players == 0){
@@ -191,7 +209,7 @@ public class FfmpegController {
                     m3U8Util.removeAllFile(m3u8Dir);
                     m3U8Util.removeAllFile(m3u8DirMobility);
                 }
-            }
+            //}
             response.setCode(Constants.CameraResponse.SUCCESS.getCode());
             response.setDesc(Constants.CameraResponse.SUCCESS.getDesc());
         } catch (Exception e) {
@@ -219,7 +237,7 @@ public class FfmpegController {
             GstCameraReplayConfigDto gstCameraReplayConfigDto = this.replayConfigService.queryReplayConfigByCameraId(replayConfigDto);
             gstCameraReplayConfigDto.setPlayer(0);
             this.replayConfigService.updateReplayConfig(gstCameraReplayConfigDto);
-            synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
+           // synchronized (CameraStaticObject.getCameraMap().get(outPutPath)){
                 String PID = srsService.getPID(outPutPath);
                 String PIDMobility = srsService.getPID(outPutPathMobility);
                 logger.info("stop stream find process is  {}----{} and find command is {}---{}",PID,PIDMobility,outPutPath,outPutPathMobility);
@@ -227,7 +245,7 @@ public class FfmpegController {
                     srsService.closeLinuxProcess(PID);
                     srsService.closeLinuxProcess(PIDMobility);
                 }
-            }
+            //}
             response.setCode(Constants.CameraResponse.SUCCESS.getCode());
             response.setDesc(Constants.CameraResponse.SUCCESS.getDesc());
         } catch (Exception e) {
@@ -346,7 +364,7 @@ public class FfmpegController {
             long intervalEnd = endMoment.getTime() - now.getTime();
             logger.info("duration {} to {} record a video,and remain {} ms end !",recordRequest.getStartMoment(),
                     recordRequest.getFinishMoment(),intervalEnd);
-            TsRecordTask end = new TsRecordTask(recordRequest,godeyeProperties,m3U8Util,ffmpegUtil,startFile);
+            TsRecordTask end = new TsRecordTask(recordRequest,godeyeProperties,m3U8Util,ffmpegUtil,startFile,restTemplate);
             if(startMoment == null){
                 //手动停止 立刻执行
                 SCHEDULED_EXECUTOR_SERVICE.schedule(end,0,TimeUnit.MILLISECONDS);
@@ -402,7 +420,27 @@ public class FfmpegController {
             builder.command(command);
             builder.start();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error("screenshot occur an error !{}",e);
+        }
+        try{
+           /* 参数：
+            {
+                "type": "回调类型：SCREENSHOT(截图回调)/RECORDING(录像回调)",
+                    "warnId": "警情ID",
+                    "deviceId": "摄像头ID",
+                    "url": "截图／录像文件可访问URL"
+            }*/
+            Map<String,String> paraMap = new HashMap<>();
+            paraMap.put("type",Constants.CallbackType.SCREENSHOT.getType());
+            paraMap.put("warnId",screenshotRequest.getWarnId());
+            paraMap.put("deviceId",screenshotRequest.getDeviceId());
+            paraMap.put("url",nginxFilePath);
+            logger.info("screenshot callback request is {}",paraMap);
+            String result = this.restTemplate.postForObject(godeyeProperties.getScreenshotCallback(),paraMap,String.class);
+            logger.info("screenshot callback result is {}",result);
+
+        }catch (Exception e){
+            logger.error("screenshot callback occur an error! err info is {}",e);
         }
         CameraResponse result = new CameraResponse();
         result.setCode(Constants.CameraResponse.SUCCESS.getCode());

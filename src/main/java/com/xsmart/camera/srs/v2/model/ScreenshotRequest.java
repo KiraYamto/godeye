@@ -11,6 +11,15 @@ public class ScreenshotRequest implements Serializable {
     private String deviceId;
     private String streamPath;
     private String resolution;
+    private String warnId;
+
+    public String getWarnId() {
+        return warnId;
+    }
+
+    public void setWarnId(String warnId) {
+        this.warnId = warnId;
+    }
 
     public String getUserId() {
         return userId;

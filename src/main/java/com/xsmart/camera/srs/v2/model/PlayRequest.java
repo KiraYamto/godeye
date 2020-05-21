@@ -11,6 +11,15 @@ public class PlayRequest implements Serializable {
     private String provider;
     private String deviceId;
     private String vcodec;
+    private Boolean isNvr;
+
+    public Boolean getNvr() {
+        return isNvr;
+    }
+
+    public void setNvr(Boolean nvr) {
+        isNvr = nvr;
+    }
 
     public String getVcodec() {
         return vcodec;

@@ -1,6 +1,7 @@
 package com.xsmart.camera.util;
 
 import com.xsmart.camera.GodeyeProperties;
+import com.xsmart.camera.controller.CameraStaticObject;
 import com.xsmart.config.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,15 +69,23 @@ public class FfmpegUtil {
             command.add("-i");
             command.add(streamPath);
             command.add("-c:v");
-            if(provider.contains("dahua")){
-                command.add("copy");
-            }else {
-                command.add("libx264");
-            }
+//            if(provider.contains("dahua")){
+//                command.add("copy");
+//            }else {
+//                command.add("libx264");
+//            }
+            command.add("libx264");
+
             command.add("-ar");//音频采样率
             command.add("44100");
             command.add("-c:a");
-            command.add("copy");
+            //如果直连 使用copy 防止有些没有音频的流，
+
+            if(CameraStaticObject.getCameraIsNvrMap().get(deviceId)){
+                command.add("copy");
+            }else{
+                command.add("aac");
+            }
             command.add("-f");
             command.add("flv");
             command.add("-y");
@@ -105,7 +114,12 @@ public class FfmpegUtil {
         command.add("-ar");//音频采样率
         command.add("44100");
         command.add("-c:a");
-        command.add("copy");
+        //如果直连 使用copy 防止有些没有音频的流，
+        if(CameraStaticObject.getCameraIsNvrMap().get(deviceId)){
+            command.add("copy");
+        }else{
+            command.add("aac");
+        }
         command.add("-b");
         command.add(bitrate);
         command.add("-f");
@@ -136,6 +150,8 @@ public class FfmpegUtil {
         } else if (streamPath.equals("testtwo")) {
             streamPath = godeyeProperties.getTestFileTwo();
         }
+        command.add("-rtsp_transport");
+        command.add("tcp");
         command.add("-i");
         command.add(streamPath);
         command.add("-y");

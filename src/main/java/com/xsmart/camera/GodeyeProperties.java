@@ -94,7 +94,17 @@ public class GodeyeProperties {
     private String recordCallback;
     @Value("${http.callback.monitor}")
     private String monitorHttpCallback;
+    @Value("${http.callback.screenshot}")
+    private String screenshotCallback;
 
+
+    public String getScreenshotCallback() {
+        return screenshotCallback;
+    }
+
+    public void setScreenshotCallback(String screenshotCallback) {
+        this.screenshotCallback = screenshotCallback;
+    }
 
     public String getServerOs() {
         return serverOs;
@@ -169,7 +179,7 @@ public class GodeyeProperties {
     }
 
     public String getNginxShotPath() {
-        return "http://"+srsHost+":"+srsServerOutPort+nginxShotPath;
+        return "http://"+srsHost+":"+nginxProxyPort+nginxShotPath;
     }
 
     public void setNginxShotPath(String nginxShotPath) {

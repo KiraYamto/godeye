@@ -15,6 +15,15 @@ public class RecordRequest implements Serializable {
     private String userId;
     private int recordType;
     private String date;
+    private String warnId;
+
+    public String getWarnId() {
+        return warnId;
+    }
+
+    public void setWarnId(String warnId) {
+        this.warnId = warnId;
+    }
 
     public String getDate() {
         return date;
