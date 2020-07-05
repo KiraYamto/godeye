@@ -75,7 +75,7 @@ public class TsRecordTask implements Runnable{
             builder.command(commands);
             builder.start();
         } catch (Exception e) {
-            logger.error("concat file occur an error",e);
+            logger.error("concat file occur an error    ",e);
         }
         try{
            /* 参数：
